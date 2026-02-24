@@ -11,7 +11,7 @@
 
 @media (prefers-color-scheme: dark) {
   body {
-    background: #111;
+    background: #1f1f1f;
     color: #eee;
   }
 }
@@ -19,7 +19,7 @@
 @media (prefers-color-scheme: light) {
   body {
     background: #fff;
-    color: #111;
+    color: #1f1f1f;
   }
 }
 
