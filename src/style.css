@@ -6,6 +6,21 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #111;
+    color: #eee;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background: #fff;
+    color: #111;
+  }
 }
 
 #app {
