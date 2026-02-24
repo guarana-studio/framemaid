@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Framemaid</title>
     <style>
-      html, body {
+      html,
+      body {
         margin: 0;
         padding: 0;
         width: 100%;
@@ -17,5 +18,37 @@
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
+    <script>
+      window.op =
+        window.op ||
+        (function () {
+          var n = [];
+          return new Proxy(
+            function () {
+              arguments.length && n.push([].slice.call(arguments));
+            },
+            {
+              get: function (t, r) {
+                return "q" === r
+                  ? n
+                  : function () {
+                      n.push([r].concat([].slice.call(arguments)));
+                    };
+              },
+              has: function (t, r) {
+                return "q" === r;
+              },
+            },
+          );
+        })();
+      window.op("init", {
+        apiUrl: "https://openpanel-api.guarana.studio/",
+        clientId: "d678829b-c369-47bf-81e9-72ff9ff7136c",
+        trackScreenViews: true,
+        trackOutgoingLinks: true,
+        trackAttributes: true,
+      });
+    </script>
+    <script src="https://openpanel.dev/op1.js" defer async></script>
   </body>
 </html>
